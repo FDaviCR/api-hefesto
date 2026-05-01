@@ -5,7 +5,12 @@ const { generateToken } = require('../config/jwt');
 exports.register = async (data) => {
   const hash = await bcrypt.hash(data.password, 10);
   const user = await User.create({ ...data, password: hash });
-  return user;
+  return {
+    "success": true,
+    "data": {user},
+    "message": "",
+    "error": null
+  };
 };
 
 exports.login = async (email, password) => {
@@ -16,5 +21,10 @@ exports.login = async (email, password) => {
   if (!valid) throw new Error('Senha inválida');
 
   const token = generateToken({ id: user.id });
-  return { token };
+  return {
+    "success": true,
+    "data": { token },
+    "message": "",
+    "error": null
+  };
 };

@@ -5,7 +5,12 @@ exports.updateUser = async (id, data) => {
   if (!user) throw new Error('Usuário não encontrado');
 
   await user.update(data);
-  return user;
+  return {
+    "success": true,
+    "data": {user},
+    "message": "",
+    "error": null
+  };
 };
 
 exports.inactivateUser = async (id) => {
@@ -13,5 +18,10 @@ exports.inactivateUser = async (id) => {
   if (!user) throw new Error('Usuário não encontrado');
 
   await user.update({ active: false });
-  return { message: 'Usuário inativado' };
+  return {
+    "success": true,
+    "data": {},
+    "message": "Usuário inativado",
+    "error": null
+  };
 };
