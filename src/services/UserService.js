@@ -1,21 +1,17 @@
-const User = require('../models/UserModel');
-const bcrypt = require('bcryptjs');
+const UserModel = require('../models/User');
 
-module.exports = {
-  async create(user) {
-    const hashedPassword = await bcrypt.hash(user.password, 10);
+exports.updateUser = async (id, data) => {
+  const user = await UserModel.findByPk(id);
+  if (!user) throw new Error('Usuário não encontrado');
 
-    return User.create({
-      ...user,
-      password: hashedPassword
-    });
-  },
+  await user.update(data);
+  return user;
+};
 
-  async update(id, data) {
-    return User.update(id, data);
-  },
+exports.inactivateUser = async (id) => {
+  const user = await UserModel.findByPk(id);
+  if (!user) throw new Error('Usuário não encontrado');
 
-  async delete(id) {
-    return User.delete(id);
-  }
+  await user.update({ active: false });
+  return { message: 'Usuário inativado' };
 };
