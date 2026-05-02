@@ -5,7 +5,11 @@ exports.update = async (req, res, next) => {
     const user = await service.updateUser(req.params.id, req.body);
     res.json(user);
   } catch (err) {
-    next(err);
+    next(
+      {
+        "message": "Erro ao atualizar usuário: " + err.message
+      }
+    );
   }
 };
 
@@ -14,6 +18,10 @@ exports.inactivate = async (req, res, next) => {
     const result = await service.inactivateUser(req.params.id);
     res.json(result);
   } catch (err) {
-    next(err);
+    next(
+      {
+        "message": "Erro ao inativar usuário: " + err.message
+      }
+    );
   }
 };

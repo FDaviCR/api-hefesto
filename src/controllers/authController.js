@@ -5,7 +5,11 @@ exports.register = async (req, res, next) => {
     const user = await service.register(req.body);
     res.json(user);
   } catch (err) {
-    next(err);
+    next(
+      {
+        "message": "Erro ao registrar usuário: " + err.message
+      }
+    );
   }
 };
 
@@ -15,6 +19,10 @@ exports.login = async (req, res, next) => {
     const result = await service.login(email, password);
     res.json(result);
   } catch (err) {
-    next(err);
+    next(
+      {
+        "message": "Erro ao fazer login: " + err.message
+      }
+    );
   }
 };
