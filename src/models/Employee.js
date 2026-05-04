@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const User = sequelize.define('User', {
+const Employee = sequelize.define('Employee', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -12,17 +12,15 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     unique: true
   },
-  password: DataTypes.STRING,
+  company: DataTypes.INTEGER,
+  position: DataTypes.INTEGER,
   active: {
     type: DataTypes.BOOLEAN,
     defaultValue: true
-  },
-  company: DataTypes.INTEGER,
-  position: DataTypes.INTEGER,
-  theme: DataTypes.INTEGER
+  }
 }, {
   timestamps: true,
-  tableName: 'users'
+  tableName: 'employees'
 });
 
-module.exports = User;
+module.exports = Employee;
