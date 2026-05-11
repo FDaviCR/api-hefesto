@@ -1,9 +1,9 @@
-const service = require('../services/userService');
+const service = require('../services/Service');
 
-exports.update = async (req, res, next) => {
+exports.atualizar = async (req, res, next) => {
   try {
-    const user = await service.updateUser(req.params.id, req.body);
-    res.json(user);
+    const usuario = await service.updateUser(req.params.id, req.body);
+    res.json(usuario);
   } catch (err) {
     next(
       {
@@ -13,7 +13,7 @@ exports.update = async (req, res, next) => {
   }
 };
 
-exports.inactivate = async (req, res, next) => {
+exports.inativar = async (req, res, next) => {
   try {
     const result = await service.inactivateUser(req.params.id);
     res.json(result);

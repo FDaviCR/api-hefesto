@@ -1,8 +1,8 @@
-const User = require('../models/User');
+const User = require('../models/Usuario');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../config/jwt');
 
-exports.register = async (data) => {
+exports.registrar = async (data) => {
   const hash = await bcrypt.hash(data.password, 10);
   const user = await User.create({ ...data, password: hash });
 

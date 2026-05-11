@@ -6,13 +6,13 @@ app.use(express.json());
 
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
-const userRoutes = require('./routes/userRoutes');
-const authRoutes = require('./routes/authRoutes');
+const usuarioRoutes = require('./routes/usuarioRoutes');
+const autenticacaoRoutes = require('./routes/autenticacaoRoutes');
 
 app.use(errorMiddleware);
 
-app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
+app.use('/autenticacao', autenticacaoRoutes);
+app.use('/usuarios', usuarioRoutes);
 
 
 // Sincronizar banco de dados (dev)

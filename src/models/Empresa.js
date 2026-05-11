@@ -1,21 +1,21 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Company = sequelize.define('Company', {
+const Empresa = sequelize.define('Empresa', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true
   },
-  name: DataTypes.STRING,
+  empresa: DataTypes.STRING,
   cnpj: DataTypes.STRING,
-  address: DataTypes.STRING,
-  phone: DataTypes.STRING,
+  endereco: DataTypes.STRING,
+  telefone: DataTypes.STRING,
   email: DataTypes.STRING,
-  active: DataTypes.BOOLEAN
+  ativo: DataTypes.BOOLEAN
 }, {
   timestamps: true,
-  tableName: 'companies'
+  tableName: 'empresas'
 });
 
-module.exports = Company;
+module.exports = Empresa;

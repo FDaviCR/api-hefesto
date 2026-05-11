@@ -1,6 +1,6 @@
-const service = require('../services/authService');
+const service = require('../services/autenticacaoService');
 
-exports.register = async (req, res, next) => {
+exports.registrar = async (req, res, next) => {
   try {
     const user = await service.register(req.body);
     res.json(user);

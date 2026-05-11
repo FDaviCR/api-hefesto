@@ -7,9 +7,10 @@ const Log = sequelize.define('Log', {
     autoIncrement: true,
     primaryKey: true
   },
-  sucess: DataTypes.BOOLEAN,
-  action: DataTypes.STRING,
-  user: DataTypes.INTEGER
+  mensagem: DataTypes.STRING,
+  usuario: DataTypes.INTEGER,
+  sucesso: DataTypes.BOOLEAN,
+  erro: DataTypes.BOOLEAN
 }, {
   timestamps: true,
   tableName: 'logs'

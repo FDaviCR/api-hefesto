@@ -1,6 +1,6 @@
-const UserModel = require('../models/User');
+const UserModel = require('../models/Usuario');
 
-exports.updateUser = async (id, data) => {
+exports.atualizarUsuario = async (id, data) => {
   const user = await UserModel.findByPk(id);
   if (!user) throw new Error('Usuário não encontrado');
 
@@ -13,11 +13,11 @@ exports.updateUser = async (id, data) => {
   };
 };
 
-exports.inactivateUser = async (id) => {
+exports.inativarUsuario = async (id) => {
   const user = await UserModel.findByPk(id);
   if (!user) throw new Error('Usuário não encontrado');
 
-  await user.update({ active: false });
+  await user.update({ ativo: false });
   return {
     "success": true,
     "data": {},
