@@ -9,6 +9,8 @@ const Log = sequelize.define('Log', {
   },
   mensagem: DataTypes.STRING,
   usuario: DataTypes.INTEGER,
+  tabela: DataTypes.STRING,
+  acao: DataTypes.STRING,
   sucesso: DataTypes.BOOLEAN,
   erro: DataTypes.BOOLEAN
 }, {
