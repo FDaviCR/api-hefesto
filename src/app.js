@@ -10,12 +10,11 @@ const usuarioRoutes = require('./routes/usuarioRoutes');
 const autenticacaoRoutes = require('./routes/autenticacaoRoutes');
 const logRoutes = require('./routes/logRoutes');
 
-app.use(errorMiddleware);
-
 app.use('/autenticacao', autenticacaoRoutes);
 app.use('/usuarios', usuarioRoutes);
 app.use('/logs', logRoutes);
 
+app.use(errorMiddleware);
 
 // Sincronizar banco de dados (dev)
 sequelize.sync();

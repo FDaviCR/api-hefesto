@@ -1,29 +1,28 @@
 const LogService = require('../services/logService');
 
-exports.criar = async (req, res) => {
+exports.criar = async (req, res, next) => {
   try {
     const result = await LogService.criarLog(req.body);
-    return res.status(201).json(result);
+    return res.json(result);
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      data: {},
-      message: '',
-      error: error.message
-    });
+    console.error('Erro ao criar log:', error);
+    next(
+      {
+        "message": "Erro ao criar log: " + error.message
+      }
+    );
   }
 };
 
-exports.listar = async (req, res) => {
+exports.listar = async (req, res, next) => {
   try {
     const result = await LogService.buscarLogs(req.query);
-    return res.status(200).json(result);
+    return res.json(result);
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      data: {},
-      message: '',
-      error: error.message
-    });
+    next(
+      {
+        "message": "Erro ao consultar logs: " + error.message
+      }
+    );
   }
 };
