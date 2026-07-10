@@ -11,14 +11,14 @@
 * **Clientes**
 
   * id
-  * user_id (opcional)
+  * usuario_id
   * telefone
   * cpf/cnpj
 
 * **Corretores**
 
   * id
-  * user_id
+  * usuario_id
   * creci
   * comissão (%)
 
