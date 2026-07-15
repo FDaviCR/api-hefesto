@@ -2,7 +2,7 @@ const service = require('../services/autenticacaoService');
 
 exports.registrar = async (req, res, next) => {
   try {
-    const user = await service.register(req.body);
+    const user = await service.registrar(req.body);
     res.json(user);
   } catch (err) {
     next(

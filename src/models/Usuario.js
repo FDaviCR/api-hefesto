@@ -7,19 +7,36 @@ const Usuario = sequelize.define('Usuario', {
     autoIncrement: true,
     primaryKey: true
   },
-  usuario: DataTypes.STRING,
-  email: {
+  usuario: {
     type: DataTypes.STRING,
+    allowNull: true, 
     unique: true
   },
-  senha: DataTypes.STRING,
+  email: {
+    type: DataTypes.STRING,
+    allowNull: true, 
+    unique: true
+  },
+  senha: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   ativo: {
     type: DataTypes.BOOLEAN,
     defaultValue: true
   },
-  empresa: DataTypes.INTEGER,
-  cargo: DataTypes.INTEGER,
-  tema: DataTypes.INTEGER
+  empresa: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  cargo: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  tema: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  }
 }, {
   timestamps: true,
   tableName: 'usuarios'

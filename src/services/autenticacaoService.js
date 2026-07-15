@@ -3,22 +3,22 @@ const bcrypt = require('bcrypt');
 const { generateToken } = require('../config/jwt');
 
 exports.registrar = async (data) => {
-  const hash = await bcrypt.hash(data.password, 10);
-  const user = await User.create({ ...data, password: hash });
+  const hash = await bcrypt.hash(data.senha, 10);
+  const user = await User.create({ ...data, senha: hash });
 
   return {
     "success": true,
-    "data": { id: user.id, name: user.name, email: user.email },
+    "data": { id: user.id, name: user.nome, email: user.email },
     "message": "Usuário registrado com sucesso",
     "error": null
   };
 };
 
-exports.login = async (email, password) => {
-  const user = await User.findOne({ where: { email } });
+exports.login = async (usuario, senha) => {
+  const user = await User.findOne({ where: { usuario } });
   if (!user) throw new Error('Usuário não encontrado');
 
-  const valid = await bcrypt.compare(password, user.password);
+  const valid = await bcrypt.compare(senha, user.senha);
   if (!valid) throw new Error('Senha inválida');
 
   const token = generateToken({ id: user.id });

@@ -3,6 +3,6 @@ const router = express.Router();
 const logController = require('../controllers/logController');
 const auth = require('../middlewares/authMiddleware');
 
-router.get('/', auth, logController.listar);
+router.get('/', logController.listar);
 
 module.exports = router;
