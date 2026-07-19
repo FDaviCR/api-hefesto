@@ -3,7 +3,14 @@ const jwt = require('jsonwebtoken');
 module.exports = (req, res, next) => {
   const token = req.headers.authorization;
   if (!token) {
-    return res.status(401).json({ error: 'Token não informado' });
+    return res.status(401).json(
+      {
+        "success": false,
+        "data": null,
+        "message": "Token não informado",
+        "error": true
+      }
+    );
   };
 
   try {

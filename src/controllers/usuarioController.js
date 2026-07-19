@@ -3,7 +3,7 @@ const logService = require('../services/logService');
 
 exports.atualizar = async (req, res, next) => {
   try {
-    const usuario = await service.updateUser(req.params.id, req.body);
+    const usuario = await service.atualizarUsuario(req.params.id, req.body);
 
     logService.criarLog({
       mensagem: "Usuário atualizado com sucesso",
@@ -35,7 +35,7 @@ exports.atualizar = async (req, res, next) => {
 
 exports.inativar = async (req, res, next) => {
   try {
-    const result = await service.inactivateUser(req.params.id);
+    const result = await service.inativarUsuario(req.params.id);
     
     logService.criarLog({
       mensagem: "Usuário inativado com sucesso",
