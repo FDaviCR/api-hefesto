@@ -1,8 +1,8 @@
-const UserModel = require('../models/Usuario');
+const UsuarioModel = require('../models/Usuario');
 const bcrypt = require('bcrypt');
 
 exports.atualizarUsuario = async (id, data) => {
-  const user = await UserModel.findByPk(id);
+  const user = await UsuarioModel.findByPk(id);
   if (!user) throw new Error('Usuário não encontrado');
 
   if (data.senha) {
@@ -19,7 +19,7 @@ exports.atualizarUsuario = async (id, data) => {
 };
 
 exports.inativarUsuario = async (id) => {
-  const user = await UserModel.findByPk(id);
+  const user = await UsuarioModel.findByPk(id);
   if (!user) throw new Error('Usuário não encontrado');
 
   await user.update({ ativo: false });

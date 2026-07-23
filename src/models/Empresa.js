@@ -8,11 +8,27 @@ const Empresa = sequelize.define('Empresa', {
     primaryKey: true
   },
   empresa: DataTypes.STRING,
-  cnpj: DataTypes.STRING,
-  endereco: DataTypes.STRING,
-  telefone: DataTypes.STRING,
-  email: DataTypes.STRING,
-  ativo: DataTypes.BOOLEAN
+  cnpj: { 
+    type: DataTypes.STRING, 
+    unique: true, 
+    allowNull: true 
+  },
+  endereco: { 
+    type: DataTypes.STRING, 
+    allowNull: true 
+  },
+  telefone: { 
+    type: DataTypes.STRING, 
+    allowNull: true 
+  },
+  email: { 
+    type: DataTypes.STRING, 
+    allowNull: true 
+  },
+  ativo: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
+  }
 }, {
   timestamps: true,
   tableName: 'empresas'

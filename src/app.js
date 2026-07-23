@@ -6,9 +6,12 @@ app.use(express.json());
 
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
+const logRoutes = require('./routes/logRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const autenticacaoRoutes = require('./routes/autenticacaoRoutes');
-const logRoutes = require('./routes/logRoutes');
+const empresaRoutes = require('./routes/empresaRoutes');
+
+app.use('/empresas', empresaRoutes);
 
 app.use('/autenticacao', autenticacaoRoutes);
 app.use('/usuarios', usuarioRoutes);

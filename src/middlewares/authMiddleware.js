@@ -18,6 +18,13 @@ module.exports = (req, res, next) => {
     req.userId = decoded.id;
     next();
   } catch {
-    res.status(401).json({ error: 'Token inválido' });
+    res.status(401).json(
+      {
+        "success": false,
+        "data": null,
+        "message": 'Token inválido',
+        "error": true
+      }
+    );
   }
 };
