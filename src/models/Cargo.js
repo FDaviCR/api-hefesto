@@ -8,10 +8,18 @@ const Cargo = sequelize.define('Cargo', {
     primaryKey: true
   },
   cargo: DataTypes.STRING,
-  descricao: DataTypes.STRING,
-  permissao: DataTypes.INTEGER,
-  grupo: DataTypes.INTEGER,
-  setor: DataTypes.INTEGER,
+  descricao: { 
+    type: DataTypes.STRING, 
+    allowNull: true 
+  },
+  permissao: {
+    type: DataTypes.INTEGER,
+    allowNull: true 
+  },
+  empresa: {
+    type: DataTypes.INTEGER, 
+    allowNull: true 
+  },
   ativo: DataTypes.BOOLEAN
 }, {
   timestamps: true,
