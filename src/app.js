@@ -11,10 +11,11 @@ const usuarioRoutes = require('./routes/usuarioRoutes');
 const autenticacaoRoutes = require('./routes/autenticacaoRoutes');
 const empresaRoutes = require('./routes/empresaRoutes');
 const cargoRoutes = require('./routes/cargoRoutes');
-
+const potencialClienteRoutes = require('./routes/potencialClienteRoutes');
 
 app.use('/empresas', empresaRoutes);
 app.use('/cargos', cargoRoutes);
+app.use('/potenciais-clientes', potencialClienteRoutes);
 
 app.use('/autenticacao', autenticacaoRoutes);
 app.use('/usuarios', usuarioRoutes);

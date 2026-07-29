@@ -11,7 +11,6 @@ const PotencialCliente = sequelize.define('PotencialCliente', {
   telefone: DataTypes.STRING,
   email: DataTypes.STRING,
   cliente: DataTypes.BOOLEAN
-
 }, {
   timestamps: true,
   tableName: 'potenciais_clientes'
