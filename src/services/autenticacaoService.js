@@ -24,7 +24,7 @@ exports.login = async (usuario, senha) => {
   const token = generateToken({ id: user.id });
   return {
     "success": true,
-    "data": { token },
+    "data": { token, usuario: user.usuario, email: user.email },
     "message": "Login realizado com sucesso",
     "error": null
   };
