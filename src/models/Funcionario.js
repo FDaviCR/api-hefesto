@@ -7,6 +7,11 @@ const Funcionario = sequelize.define('Funcionario', {
     autoIncrement: true,
     primaryKey: true
   },
+  sys_id: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
   nome: DataTypes.STRING,
   email: {
     type: DataTypes.STRING,

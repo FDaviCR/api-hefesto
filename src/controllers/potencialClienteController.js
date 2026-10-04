@@ -1,5 +1,6 @@
 const potencialClienteService = require('../services/potencialClienteService');
 const logService = require('../services/logService');
+const { randomUUID } = require('crypto');
 
 const potencialClienteController = {
 
@@ -49,12 +50,15 @@ const potencialClienteController = {
   },
 
   async criar(req, res) {
+    
     const {
       nome,
       telefone,
       email,
       cliente
     } = req.body;
+
+    req.body.sys_id = randomUUID();
 
     if (!nome) {
       const resultado = {

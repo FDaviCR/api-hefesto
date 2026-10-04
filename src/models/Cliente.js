@@ -7,6 +7,11 @@ const Cliente = sequelize.define('Cliente', {
     autoIncrement: true,
     primaryKey: true
   },
+  sys_id: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
   nome: DataTypes.STRING,
   cpf_cnpj: DataTypes.STRING,
   endereco: DataTypes.STRING,

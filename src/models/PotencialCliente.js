@@ -7,6 +7,11 @@ const PotencialCliente = sequelize.define('PotencialCliente', {
     autoIncrement: true,
     primaryKey: true
   },
+  sys_id: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
   nome: DataTypes.STRING,
   telefone: DataTypes.STRING,
   email: DataTypes.STRING,

@@ -1,9 +1,10 @@
 const service = require('../services/empresaService');
 const logService = require('../services/logService');
+const { randomUUID } = require('crypto');
 
 exports.criar = async (req, res, next) => {
   try {
-    const empresa = await service.criarEmpresa(req.body);
+    const empresa = await service.criarEmpresa({ ...req.body, sys_id: randomUUID() });
     await logService.criarLog({
       mensagem: "Empresa criada com sucesso",
       usuario: req.userId,
