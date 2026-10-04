@@ -53,7 +53,7 @@ exports.buscarLogs = async (filtros) => {
 
   return {
     success: true,
-    data: { logs },
+    data: logs,
     message: '',
     error: null
   };
