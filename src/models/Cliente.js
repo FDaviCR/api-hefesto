@@ -3,21 +3,15 @@ const sequelize = require('../config/database');
 
 const Cliente = sequelize.define('Cliente', {
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true
-  },
-  sys_id: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
   },
   nome: DataTypes.STRING,
   cpf_cnpj: DataTypes.STRING,
-  endereco: DataTypes.STRING,
   telefone: DataTypes.STRING,
   email: DataTypes.STRING,
-  empresa: DataTypes.INTEGER,
+  empresa: DataTypes.UUID,
   ativo: DataTypes.BOOLEAN
 }, {
   timestamps: true,

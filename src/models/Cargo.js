@@ -3,8 +3,8 @@ const sequelize = require('../config/database');
 
 const Cargo = sequelize.define('Cargo', {
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true
   },
   cargo: DataTypes.STRING,
@@ -12,12 +12,8 @@ const Cargo = sequelize.define('Cargo', {
     type: DataTypes.STRING, 
     allowNull: true 
   },
-  permissao: {
-    type: DataTypes.INTEGER,
-    allowNull: true 
-  },
   empresa: {
-    type: DataTypes.INTEGER, 
+    type: DataTypes.UUID, 
     allowNull: true 
   },
   ativo: DataTypes.BOOLEAN

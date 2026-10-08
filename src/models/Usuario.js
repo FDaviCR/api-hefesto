@@ -3,14 +3,9 @@ const sequelize = require('../config/database');
 
 const Usuario = sequelize.define('Usuario', {
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true
-  },
-  sys_id: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
   },
   usuario: {
     type: DataTypes.STRING,
@@ -31,12 +26,13 @@ const Usuario = sequelize.define('Usuario', {
     defaultValue: true
   },
   empresa: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.UUID,
     allowNull: true
   },
-  cargo: {
-    type: DataTypes.INTEGER,
-    allowNull: true
+  role: {
+    type: DataTypes.ENUM(...LISTA_ROLES),
+    allowNull: false,
+    defaultValue: ROLES.CLIENTE
   },
   tema: {
     type: DataTypes.INTEGER,

@@ -3,18 +3,14 @@ const sequelize = require('../config/database');
 
 const Empresa = sequelize.define('Empresa', {
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true
   },
   empresa: DataTypes.STRING,
   cnpj: { 
     type: DataTypes.STRING, 
     unique: true, 
-    allowNull: true 
-  },
-  endereco: { 
-    type: DataTypes.STRING, 
     allowNull: true 
   },
   telefone: { 
