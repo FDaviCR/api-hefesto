@@ -1,9 +1,8 @@
 const service = require('../services/autenticacaoService');
-const { randomUUID } = require('crypto');
 
 exports.registrar = async (req, res, next) => {
   try {
-    const user = await service.registrar({ ...req.body, sys_id: randomUUID() });
+    const user = await service.registrar({ ...req.body });
     res.json(user);
   } catch (err) {
     next(

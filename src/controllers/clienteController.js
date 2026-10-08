@@ -1,5 +1,4 @@
 const clienteService = require('../services/clienteService');
-const { randomUUID } = require('crypto');
 
 class ClienteController {
   async listar(req, res, next) {
@@ -22,7 +21,7 @@ class ClienteController {
 
   async criar(req, res, next) {
     try {
-      const novoCliente = await clienteService.criar({ ...req.body, sys_id: randomUUID() });
+      const novoCliente = await clienteService.criar({ ...req.body });
       return res.status(201).json(novoCliente);
     } catch (error) {
       next(error);

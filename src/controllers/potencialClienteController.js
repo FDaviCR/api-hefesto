@@ -1,20 +1,10 @@
 const potencialClienteService = require('../services/potencialClienteService');
 const logService = require('../services/logService');
-const { randomUUID } = require('crypto');
 
 const potencialClienteController = {
 
   async listar(req, res) {
     const resultado = await potencialClienteService.listar();
-
-    await logService.criarLog({
-      mensagem: resultado.message,
-      usuario: req.userId,
-      tabela: "PotencialCliente",
-      acao: "Listagem de potenciais clientes",
-      sucesso: resultado.success,
-      erro: !resultado.success
-    });
 
     return res
       .status(resultado.success ? 200 : 500)
@@ -23,19 +13,7 @@ const potencialClienteController = {
 
   async buscarPorId(req, res) {
     const { id } = req.params;
-
     const resultado = await potencialClienteService.buscarPorId(id);
-
-    await logService.criarLog({
-      mensagem: resultado.message,
-      usuario: req.userId,
-      tabela: "PotencialCliente",
-      acao: resultado.success
-        ? "Potencial cliente consultado: " + resultado.data.nome
-        : "Tentativa de consulta do potencial cliente: " + id,
-      sucesso: resultado.success,
-      erro: !resultado.success
-    });
 
     if (
       !resultado.success &&
@@ -58,8 +36,7 @@ const potencialClienteController = {
       cliente
     } = req.body;
 
-    req.body.sys_id = randomUUID();
-
+    
     if (!nome) {
       const resultado = {
         success: false,
