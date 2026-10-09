@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const { LISTA_ROLES, ROLES } = require('../config/roles');
 
 const Usuario = sequelize.define('Usuario', {
   id: {
